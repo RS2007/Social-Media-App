@@ -1,7 +1,7 @@
 ## Trying to build a social media app using MERN
 
 - After failing to build a social media app using MERN earlier(disastrous architecture),here is a new improved version of it
-- Hosted [here](https://pure-ravine-09795.herokuapp.com/)
+- Hosted [here](https://social-media-app-vild.onrender.com/)
 
 ### Some goals with the project
 
