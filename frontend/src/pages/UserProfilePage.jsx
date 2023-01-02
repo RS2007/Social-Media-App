@@ -26,6 +26,7 @@ import ExpandedPostCard from "../components/ExpandedPostCard";
 
 export default function UserProfilePage() {
   const [openModal, setOpenModal] = useState(false);
+  const [currentSelectedPost, setCurrentSelectPost] = useState("");
   const {
     data: userPosts,
     isValidating: isFetching,
@@ -95,6 +96,7 @@ export default function UserProfilePage() {
                   w="100%"
                   onClick={() => {
                     setOpenModal(true);
+                    setCurrentSelectPost(elem);
                   }}
                 >
                   <Image
@@ -103,20 +105,24 @@ export default function UserProfilePage() {
                     borderRadius="10px"
                     cursor="pointer"
                   />
-                  <ExpandedPostCard
-                    isOpen={openModal}
-                    onClose={() => {
-                      setOpenModal(false);
-                    }}
-                    picURL={elem.pic}
-                    username={elem.user.username}
-                    desc={elem.desc}
-                    postId={elem._id}
-                    createdTime={elem.createdAt}
-                    commentArray={elem.comments}
-                    mutateSWR={mutate}
-                    isPostLiked={elem.likes.includes(getUser().id)}
-                  />
+                  {openModal && (
+                    <ExpandedPostCard
+                      isOpen={openModal}
+                      onClose={() => {
+                        setOpenModal(false);
+                      }}
+                      picURL={currentSelectedPost.pic}
+                      username={currentSelectedPost.user.username}
+                      desc={currentSelectedPost.desc}
+                      postId={currentSelectedPost._id}
+                      createdTime={currentSelectedPost.createdAt}
+                      commentArray={currentSelectedPost.comments}
+                      mutateSWR={mutate}
+                      isPostLiked={currentSelectedPost.likes.includes(
+                        getUser().id
+                      )}
+                    />
+                  )}
                 </GridItem>
               ))}
             </Grid>

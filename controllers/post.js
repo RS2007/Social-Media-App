@@ -27,7 +27,7 @@ module.exports.createPost = async (req, res) => {
   }
 };
 
-module.exports.deletePost = async (req, res) => {
+module.exports.deletePost = async (_, res) => {
   try {
     console.log("hello");
   } catch (error) {
@@ -36,7 +36,7 @@ module.exports.deletePost = async (req, res) => {
   }
 };
 
-module.exports.getPostsById = async (req, res) => {
+module.exports.getPostsById = async (_, res) => {
   try {
     console.log("hello");
   } catch (error) {
@@ -45,7 +45,7 @@ module.exports.getPostsById = async (req, res) => {
   }
 };
 
-module.exports.updatePost = async (req, res) => {
+module.exports.updatePost = async (_, res) => {
   try {
     console.log("hello");
   } catch (error) {
@@ -54,7 +54,7 @@ module.exports.updatePost = async (req, res) => {
   }
 };
 
-module.exports.getAllPosts = async (req, res) => {
+module.exports.getAllPosts = async (_, res) => {
   try {
     console.log(res.locals);
     const { id: userId } = res.locals;
@@ -80,11 +80,11 @@ module.exports.getAllPosts = async (req, res) => {
     res.status(200).json(posts);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send("errorr");
+    res.status(500).send("error");
   }
 };
 
-module.exports.getAllPostsOfUser = async (req, res) => {
+module.exports.getAllPostsOfUser = async (_, res) => {
   try {
     const { id: userId } = res.locals;
     const userPosts = await postModel

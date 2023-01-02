@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import {
   Input,
+  Text,
   Icon,
   InputGroup,
   InputLeftElement,
@@ -12,6 +13,7 @@ import {
 import { FaSearch } from "react-icons/fa";
 import _axios from "../utils/_axios";
 import { getUser } from "../utils/authUtils";
+import "./search.css";
 const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [searchedUserArray, setSearchedUserArray] = useState(null);
@@ -73,10 +75,12 @@ const SearchBar = () => {
         w="100%"
         boxShadow="rgba(0, 0, 0, 0.098) 0px 0px 5px 1px"
         zIndex={5}
+        className="searchDropDown"
       >
         {searchedUserArray?.map((elem) => (
           <Flex
             key={elem}
+            padding="1rem"
             h="fit-content"
             flexDirection="row"
             justify="left"
@@ -92,12 +96,20 @@ const SearchBar = () => {
               />
             </VStack>
             <VStack justify="center" h="60px" w="60%">
-              <p key={elem} style={{ fontWeight: "600", fontSize: "14px" }}>
+              <Text
+                key={elem}
+                style={{ fontWeight: "600", fontSize: "14px" }}
+                noOfLines={1}
+              >
                 {elem.username}
-              </p>
-              <p key={elem} style={{ color: "rgba(142,142,142,1)" }}>
+              </Text>
+              <Text
+                key={elem}
+                style={{ color: "rgba(142,142,142,1)" }}
+                noOfLines={1}
+              >
                 {elem.fullName}
-              </p>
+              </Text>
             </VStack>
             <VStack>
               <Button

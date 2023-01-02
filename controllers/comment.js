@@ -8,17 +8,17 @@ module.exports.createComment = async (req, res) => {
     const newComment = new commentModel({ user, content, postId });
     const savedComment = await newComment.save();
     console.log(savedComment);
-    const post = await postModel.findByIdAndUpdate(postId, {
+    await postModel.findByIdAndUpdate(postId, {
       $push: { comments: savedComment._id },
     });
-    res.status(200).send("New comment created succesfully");
+    res.status(200).send("New comment created successfully");
   } catch (error) {
     console.log(error);
     res.status(500).json("Database error");
   }
 };
 
-module.exports.deleteComment = async (req, res) => {
+module.exports.deleteComment = async (_, res) => {
   try {
     console.log("hello");
   } catch (error) {
@@ -27,7 +27,7 @@ module.exports.deleteComment = async (req, res) => {
   }
 };
 
-module.exports.getComment = async (req, res) => {
+module.exports.getComment = async (_, res) => {
   try {
     console.log("hello");
   } catch (error) {
@@ -36,7 +36,7 @@ module.exports.getComment = async (req, res) => {
   }
 };
 
-module.exports.updateComment = async (req, res) => {
+module.exports.updateComment = async (_, res) => {
   try {
     console.log("hello");
   } catch (error) {

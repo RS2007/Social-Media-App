@@ -14,7 +14,7 @@ const connectToDB = async () => {
   try {
     const hasConnected = await mongoose.connect(
       process.env.NODE_ENV === "production"
-        ? process.env.PROD_DB_URL 
+        ? process.env.PROD_DB_URL
         : process.env.DEV_DB_URL
     );
     if (hasConnected) console.log("Conneted to database");
@@ -33,7 +33,7 @@ app.use(
   cors({
     credentials: true,
     origin: [
-      "http://localhost:3002",
+      "http://localhost:3000",
       "http://localhost:9001",
       "https://socialmediaapp-cel.pages.dev/",
       "https://social-media-app-five-nu.vercel.app",
