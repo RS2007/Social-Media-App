@@ -1,7 +1,7 @@
 import { isLoggedIn } from "../utils/authUtils";
 
 const LOGIN_URL = import.meta.env.PROD
-  ? "https://pure-ravine-09795.herokuapp.com/login"
+  ? "https://social-media-app-vild.onrender.com/login"
   : "http://localhost:3000/login";
 
 /* eslint-disable react/prop-types*/
