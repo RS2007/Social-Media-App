@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "build": "cd frontend && npm run build && cd .."
+    "build": "cd frontend && npm i && npm run build && cd .."
   },
   "devDependencies": {
     "eslint": "^8.8.0"
